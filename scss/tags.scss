@@ -1,0 +1,78 @@
+.tags {
+
+    &__header {
+        display: none;
+
+        @media (max-width: $breakpoint992) {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: #FFF;
+            font-family: Roboto;
+            font-size: clamp(12px, 2.5vw, 18px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1.5; /* 150% */
+            letter-spacing: 0.36px;
+        }
+
+        &_active {
+            color: $orange;
+            svg {
+                rotate: 90deg;
+
+                * {
+                    stroke: $orange;
+                }
+            }
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 11px;
+        row-gap: 17px;
+
+        @media (max-width: $breakpoint992) {
+            margin-top: 35px;
+            &:not(.tags__body_active) {
+                display: none;
+            }
+        }
+        @media (max-width: $breakpoint480) {
+            row-gap: 8px;
+            margin-top: 16px;
+        }
+    }
+}
+.tag {
+    cursor: pointer;
+    color: #FFF;
+    /* Наборный */
+    font-family: Roboto;
+    font-size: clamp(12px, 2.5vw, 18px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5; /* 150% */
+    letter-spacing: 0.36px;
+
+    padding: 0.5em 1.83em;
+    border-radius: 6px;
+    border: 1px solid #FFF;
+
+    @media (max-width: $breakpoint480) {
+        padding: 0 13px;
+    }
+
+    &:not(.tag_active):hover {
+        color: $orange;
+        border-color: $orange;
+    }
+
+    &.tag_active {
+        background-color: $orange;
+        border-color: $orange;
+    }
+}

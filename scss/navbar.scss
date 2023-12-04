@@ -1,0 +1,207 @@
+.header {
+
+    border-bottom: 0.6px solid #E3E2E2;
+    background-color: $darkSection;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 8;
+
+    &__btn {
+        display: none;
+    }
+}
+
+.navbar {
+    display: flex;
+    padding-top: 15px;
+
+    @media (max-width: $breakpoint992) {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    @media (max-width: $breakpoint480) {
+        align-items: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    // .navbar__logo
+    &__logo {
+        max-width: clamp(104px, 18vw, 186px);
+
+        & img {
+            width: 100%;
+        }
+    }
+
+    // .navbar__btns
+    &__contacts {
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        
+        & a {
+            color: #FFF;
+            font-family: Rubik;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 1.5; /* 150% */
+            letter-spacing: 0.18px;
+
+            @media (max-width: $breakpoint1450) {
+                font-size: 16px;
+            }
+            @media (max-width: $breakpoint480) {
+                font-size: 12px;
+            }
+        }
+        
+        @media (max-width: $breakpoint480) {
+            & > a:last-of-type {
+                display: none;
+            }
+        }
+    }
+
+}
+
+.menu {
+
+    margin-left: clamp(30px, 4vw, 76px);
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    // .menu__item
+    &__item {
+        &-droplist {
+
+            position: relative;
+
+            a {
+                display: flex;
+                align-items: center;
+            }
+
+            svg {
+                transition: .3s transform;
+                transform: rotate(0deg);
+            }
+
+            &.active {
+                svg {
+                    transform: rotate(180deg);
+                }
+
+                .droplist {
+                    display: block;
+                    animation: fade .3s linear;
+
+                    @media (max-width: $breakpoint992) {
+                        position: static;
+                    }
+                }
+            }
+
+            @media (max-width: $breakpoint992) {
+                svg {
+                    path {
+                        fill: black;
+                    }
+                }
+            }
+            
+        }
+    }
+
+    // .menu__item-link
+    &__item-link {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.35; /* 135% */
+        letter-spacing: 0.2px;
+        position: relative;
+        display: block;
+        padding-top: 18px;
+        padding-bottom: 25px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: $orange;
+            z-index: 9;
+        }
+        
+        &:hover {
+            &::before {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: $breakpoint1450) {
+            font-size: 14px;
+        }
+    }
+
+}
+
+.droplist {
+
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: lightblue;
+    transition: .3s ease;
+
+    // .droplist__item
+    &__item {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 3;
+        padding-left: 20px;
+        transition: .3s background-color;
+
+        &:hover {
+            background: lightcoral;
+        }
+
+        a {
+            color: $white;
+            display: block;
+        }
+
+        @media (max-width: $breakpoint1450) {
+            font-size: 14px;
+        }
+
+        @media (max-width: $breakpoint992) {
+            font-size: 24px;
+            text-align: center;
+            padding: 0;
+        }
+
+        @media (max-width: $breakpoint480) {
+            font-size: 18px;
+        }
+    }
+}
+
+
+@media (max-width: $breakpoint992) {
+    .menu {
+        display: none;
+    }
+}
+
+

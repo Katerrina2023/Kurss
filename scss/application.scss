@@ -1,0 +1,27 @@
+.application {
+
+    padding-bottom: 120px;
+
+    @media (max-width: $breakpoint992) {
+        display: none;
+        padding-bottom: 60px;
+    }
+    // .application__title
+    &__title {
+        color: var(--text-white, #EFEFEF);
+        text-align: center;
+        font-family: Bebas Neue;
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 68px; /* 113.333% */
+        letter-spacing: 0.6px;
+    }
+
+    // .application__btn
+    &__btn {
+        margin: 51px auto 0;
+        max-width: 390px;
+        width: 100%;
+    }
+}

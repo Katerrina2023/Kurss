@@ -1,0 +1,141 @@
+.spoilers {
+
+    position: relative;
+    flex-direction: column;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #9DA0A3;
+        opacity: .3;
+    }
+}
+.spoiler {
+
+    padding-left: 56px;
+    position: relative;
+
+    @media (max-width: $breakpoint768) {
+        padding-left: 30px;
+    }
+
+    &.spoiler_active {
+        .spoiler__header {
+            color: $orange;
+        }
+        .spoiler__body {
+            grid-template-rows: 1fr;
+            padding-bottom: 30px;
+            @media (max-width: $breakpoint768) {
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    &:not(:first-of-type) {
+        padding-top: 30px;
+        @media (max-width: $breakpoint768) {
+            padding-top: 20px;
+        }
+    }
+
+    &::after { 
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: #9DA0A3;
+        opacity: .3;
+    }
+
+
+    // .spoiler__header
+    &__header {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        font-family: Rubik;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.22; /* 122.727% */
+        letter-spacing: 0.22px;
+    }
+
+    // .spoiler__body
+    &__body {
+        padding-left: 26px;
+        padding-top: 25px;
+        padding-right: 40px;
+        font-family: Roboto;
+        font-size: clamp(12px, 2.3vw, 18px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5; /* 150% */
+        letter-spacing: 0.36px;
+
+        display: grid;
+        overflow: hidden;
+        grid-template-rows: 0fr;
+
+        @media (max-width: $breakpoint768) {
+            padding-top: 20px;
+        }
+    }
+
+    // .spoiler__content
+    &__content {
+        overflow: hidden;
+
+        &-list {
+            list-style-type: disc;
+            padding-left: 30px;
+        }
+
+        &-mark {
+            margin-top: 18px;
+            padding-left: 20px;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 2px;
+                height: 100%;
+                background-color: #FFF;
+                border-radius: 1px;
+            }
+
+            a {
+                color: $orange;
+                text-decoration: underline;
+            }
+        }
+
+        &-img {
+            margin-top: 30px;
+            img {
+                width: 100%;
+            }
+
+            @media (max-width: $breakpoint480) {
+                display: none;
+            }
+        }
+    }
+
+    &__icon {
+        max-width: 45px;
+        width: 9vw;
+    }
+}
